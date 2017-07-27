@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+div {
+	padding: 10px;
+}
+#judgmentBox{
+	position:absolute;
+	vertical-align: middle;
+	text-align:center;
+	border: black thin solid;
+	background-color: red;
+}
+
+#userDiv {
+	border: black thin solid;
+	background-color: orange;
+}
+
+#buttonDiv{
+	
+	border: black thin solid;
+	background-color: yellow;
+}
