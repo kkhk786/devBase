@@ -1,0 +1,22 @@
+	안녕하세요. 자꾸 수업 등록이 하루하루 늦어져서 죄송합니다.
+	저번주에 포인터에 대해 감이 왔으면 본격적으로 포인터가 무엇인지 공부합니다.
+
+	기본 자료구조 알고리즘에는
+	Stack, Queue, List가 있습니다.
+
+	스택은 FILO로 구조 First in Last out 이란 뜻입니다.
+	그러니깐 스택이라는 곳에 데이터를 먼저 넣으면(put) 가장 나중에 나오는 구조입니다.(pop)
+
+	큐는 FIFO로 구조로 First in First out이란 뜻으로
+	큐라는 곳에 데이터를 넣으면(push) 가장 먼저 나오는 구조 입니다.(get)
+
+	List는 Queue와 성질이 같은 Fist in Fist out인데 탐색이 가능한 구조입니다.
+
+	Stack, Queue, List로 구분이 되면 
+	연결 구조의 형태로
+	Array, Linked, Tree, Map으로 나뉩니다.
+	Array는 배열, Linked는 연결형, Tree는 트리형, Map은 맵형입니다.
+	여기서 우리는 공부할 것이 먼저 Linked입니다. (Array, Tree, Map에 대해선 나중에 기회가 있음 자료구조를 공부할때 공부합시다.)
+
+	LinkedStack, LinkedQueue, LinkedList를 만들어 보겠습니다.
+	제가 LinkedStack의 예시를 만들어 놓을 테니 LinkedQueue, LinkedList를 만들어 보시기 바랍니다.

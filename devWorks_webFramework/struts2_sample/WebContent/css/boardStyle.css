@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+table {
+	margin: 0px auto;
+	padding: 0px;
+	border-width: 0px;
+}
+
+th {
+	padding: 10px;
+	border-color: #eeeeee;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #999999;
+}
+
+td {
+	padding: 10px;
+	border-color: #bbbbbb;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #eeeeee;
+}
+
+td:hover {
+	background-color: #cccccc;
+}
+
+td a {
+	text-decoration: none;
+}
+
+th.reply {
+	width: 100px;
+	padding: 5px;
+	border-width: 0px;
+	background-color: #999999;
+	text-align: left;
+}
+
+td.reply {
+	padding: 0px;
+	border-width: 0px;
+	background-color: #eeeeee;
+}
+

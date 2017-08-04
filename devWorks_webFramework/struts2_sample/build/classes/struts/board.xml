@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="board" namespace="/board" extends="main">
+		<action name="boardList" class="test.board.BoardAction" method="listBoard">
+			<result>/boardListForm.jsp</result>
+		</action>
+		<action name="boardRead" method="readBoard" class="test.board.BoardAction">
+			<result>/boardReadForm.jsp</result>
+		</action>
+		<action name="fileDownload" class="test.board.BoardAction" method="fileDownload">
+			<result type="stream">
+				<param name="contentType">binary/octet-stream</param>
+				<param name="contentLength">${contentLength}</param>
+				<param name="contentDisposition">${contentDisposition}</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="goBoardWriteForm">
+			<interceptor-ref name="interceptor"/>
+			<result>/boardWriteForm.jsp</result>
+		</action>
+		<action name="goBoardEditForm" class="test.board.BoardAction" method="editForm">
+			<result>/boardEditForm.jsp</result>
+		</action>
+		<action name="boardWrite" class="test.board.BoardAction" method="insertBoard">
+			<result>/boardListForm.jsp</result>
+		</action>
+		<action name="boardEdit" class="test.board.BoardAction" method="editBoard">
+			<result>/boardReadForm.jsp</result>
+		</action>
+		<action name="boardDelete" class="test.board.BoardAction" method="deleteBoard">
+			<result>/boardListForm.jsp</result>
+		</action>
+		<action name="replyWrite" class="test.board.BoardAction" method="insertReply">
+			<result>/boardReadForm.jsp</result>
+		</action>
+		<action name="replyEdit" class="test.board.BoardAction" method="updateReply">
+			<result>/boardReadForm.jsp</result>
+		</action>
+		<action name="replyDelete" class="test.board.BoardAction" method="deleteReply">
+			<result>/boardReadForm.jsp</result>
+		</action>
+	</package>
+</struts>

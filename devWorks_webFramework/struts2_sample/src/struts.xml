@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.multipart.maxSize" value="104857600"></constant>
+	<package name="main" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="test.member.LoginInterceptor"></interceptor>
+			<interceptor-stack name="interceptor">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="loginInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-action-ref name="index"/>
+		<global-results>
+			<result name="login">/loginForm.jsp</result>
+		</global-results>
+		
+		<action name="index">
+			<result>index.jsp</result>
+		</action>
+	</package>
+
+	<include file="struts/member.xml"/>
+	<include file="struts/board.xml"/>
+</struts>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="member" namespace="/member" extends="main">
+		<action name="goMemberJoinForm">
+			<result>/memberJoinForm.jsp</result>
+		</action>
+		<action name="insertMember" class="test.member.MemberAction" method="insertMember">
+			<result>/index.jsp</result>
+		</action>
+		<action name="goIdCheckForm">
+			<result>/checkForm.jsp</result>
+		</action>
+		<action name="idCheck" class="test.member.MemberAction" method="idCheck">
+			<result>/checkForm.jsp</result>
+		</action>
+		<action name="goZipcodeForm">
+			<result>/zipcodeForm.jsp</result>
+		</action>
+		<action name="zipcode" class="test.member.MemberAction" method="zipcode">
+			<result>/zipcodeForm.jsp</result>
+		</action>
+		<action name="goLoginForm">
+			<result>/loginForm.jsp</result>
+		</action>
+		<action name="login" class="test.member.MemberAction" method="login">
+			<result>/index.jsp</result>
+		</action>
+		<action name="logout" class="test.member.MemberAction" method="logout">
+			<result>/index.jsp</result>
+		</action>
+		<action name="updateMemberForm" class="test.member.MemberAction" method="updateMemberForm">
+			<result>/updateMemberForm.jsp</result>
+		</action>
+		<action name="updateMember" class="test.member.MemberAction" method="updateMember">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+</struts>

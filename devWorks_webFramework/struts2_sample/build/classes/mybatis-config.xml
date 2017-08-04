@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties"/>
+
+	<typeAliases>
+		<typeAlias type="test.board.Board" alias="Board"/>
+		<typeAlias type="test.member.Member" alias="Member"/>
+		<typeAlias type="test.board.Reply" alias="Reply"/>
+		<typeAlias type="test.member.Zipcode" alias="Zipcode"/>
+		<typeAlias type="test.board.FileVO" alias="FileVO"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="jdbc"/>
+			<dataSource type="pooled">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mapper/boardMapper.xml"/>
+		<mapper resource="mapper/memberMapper.xml"/>
+	</mappers>
+</configuration>
