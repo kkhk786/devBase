@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body {
+	background-color: black;
+}
+
+.menuBar1{
+	border:white thin solid;
+	position: fixed;
+}
+
+.hMenu {
+	border: white thick solid;
+	color: white;
+	width: 150px;
+	text-align: center;
+	margin: 5px;
+	width: 150px;
+	display: inline-block;
+}
+
+.hMenu :hover {
+	background-color: white;
+	color: black;
+}

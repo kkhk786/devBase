@@ -1,5 +1,6 @@
 package starterClass;
 
+import subject.EX_a;
 import subject.Example;
 import test.TTC01;
 import test.TTC02_A_withoutThreadA;
@@ -69,7 +70,8 @@ public class StarterClass {
 //		t9.start();
 //		
 //		System.out.println("Terminates main() method...");
-
+		EX_a ex_a = new EX_a();
+		ex_a.main();
 	}
 
 }
