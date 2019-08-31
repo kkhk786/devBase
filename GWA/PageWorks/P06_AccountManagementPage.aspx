@@ -16,9 +16,17 @@
             document.getElementById("btnAddAccount").style.display = "inline-block";
         }
 
-        function displayUpdateDiv(rowIndex) {
+        function displayUpdateDiv(btnPushedMod) {
             document.getElementById("divUpdateArea").style.display = "inline-block";
-            document.getElementById("tbNewAccountType").textContent = document.getElementById("gvAllAccountInfo_lblAccountType_" + rowIndex).innerText;
+            var targetRow = btnPushedMod.parentNode.parentNode;
+            
+            document.getElementById('<%= hfAccountName.ClientID %>').value = targetRow.cells[2].innerText;
+            document.getElementById('<%= tbNewAccountType.ClientID %>').value = targetRow.cells[3].innerText;
+            document.getElementById('<%= tbNewFirstName.ClientID %>').value = targetRow.cells[4].innerText;
+            document.getElementById('<%= tbNewLastName.ClientID %>').value = targetRow.cells[5].innerText;
+            document.getElementById('<%= tbNewMail.ClientID %>').value = targetRow.cells[6].innerText;
+            document.getElementById('<%= tbNewHomeAddress.ClientID %>').value = targetRow.cells[7].innerText;
+            document.getElementById('<%= tbNewWorkPlace.ClientID %>').value = targetRow.cells[8].innerText;
         }
 
         function hideUpdateDiv() {
@@ -153,7 +161,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <button id="btnOpenUpdateDiv" onclick="displayUpdateDiv(this.parentNode.parentNode.rowIndex-1); return false;">編集</button>
+                            <%--<button id="btnOpenUpdateDiv" onclick="displayUpdateDiv(this.parentNode.parentNode.rowIndex-1); return false;">編集</button>--%>
+                            <button id="btnOpenUpdateDiv" onclick="displayUpdateDiv(this); return false;">編集</button>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -167,6 +176,7 @@
                         <label>アカウントタイプ：</label>
                     </td>
                     <td>
+                        <asp:HiddenField runat="server" ID="hfAccountName" />
                         <asp:TextBox runat="server" ID="tbNewAccountType"></asp:TextBox>
                     </td>
                 </tr>
@@ -211,7 +221,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:Button runat="server" ID="btnUpdateInfo" Text="編集登録" />
+            <asp:Button runat="server" ID="btnUpdateInfo" Text="編集登録" OnClick="btnUpdateInfo_Click" />
             <button id="btnCancelUpdate" onclick="hideUpdateDiv(); return false;">キャンセル</button><br />
         </div>
 

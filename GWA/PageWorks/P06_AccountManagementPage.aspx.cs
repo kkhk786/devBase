@@ -140,28 +140,6 @@ namespace GWA.PageWorks
                 strHomeAddress = ((TextBox)gvAllAccountInfo.Rows[e.RowIndex].FindControl("tbHomeAddress")).Text;
                 strWorkPlace = ((TextBox)gvAllAccountInfo.Rows[e.RowIndex].FindControl("tbWorkPlace")).Text;
 
-                //// Simple Test
-                //System.Diagnostics.Debug.WriteLine("_/_/_/_/_/_/_/_/_/_/_/_/_/_/");
-                //System.Diagnostics.Debug.WriteLine(((TextBox)gvAllAccountInfo.Rows[e.RowIndex].FindControl("tbFirstName")).Text);
-
-                //System.Diagnostics.Debug.WriteLine(gvAllAccountInfo.Rows[e.RowIndex].Cells[1].Text);
-                //System.Diagnostics.Debug.WriteLine(gvAllAccountInfo.Rows[e.RowIndex].Cells[2].Text);
-                //System.Diagnostics.Debug.WriteLine(gvAllAccountInfo.Rows[e.RowIndex].Cells[3].Text);
-                //System.Diagnostics.Debug.WriteLine(gvAllAccountInfo.Rows[e.RowIndex].Cells[4].Text);
-                //System.Diagnostics.Debug.WriteLine("_/_/_/_/_/_/_/_/_/_/_/_/_/_/");
-
-                System.Diagnostics.Debug.WriteLine("====================================");
-                //System.Diagnostics.Debug.WriteLine("strAccountName : " + strAccountName);
-                System.Diagnostics.Debug.WriteLine("strAccountType : " + strAccountType);
-                //System.Diagnostics.Debug.WriteLine("strFirstName : " + strFirstName);
-                //System.Diagnostics.Debug.WriteLine("strLastName : " + strLastName);
-                //System.Diagnostics.Debug.WriteLine("strEmail : " + strEmail);
-                //System.Diagnostics.Debug.WriteLine("strHomeAddress : " + strHomeAddress);
-                //System.Diagnostics.Debug.WriteLine("strWorkPlace : " + strWorkPlace);
-                System.Diagnostics.Debug.WriteLine("====================================");
-                //string strQuery_UpdateAccount = queryWriter.UpdateByAccountName(strAccountName, strAccountType, strFirstName, strLastName, strEmail, strHomeAddress, strWorkPlace);
-                //queryLauncher.LaunchNonQuery(strQuery_UpdateAccount, strConnection);
-
                 gvAllAccountInfo.EditIndex = -1;
 
                 ReInitializeAndBindGridView();
@@ -222,6 +200,24 @@ namespace GWA.PageWorks
 
             string strQueryAddNewAccount = queryWriter.InsertNewAccount(strNewAccount_AccountName, strNewAccount_Password, strNewAccount_FirstName, strNewAccount_LastName, strNewAccount_EmailAddress);
             bool launch = queryLauncher.LaunchNonQuery(strQueryAddNewAccount, strConnection);
+        }
+
+        protected void btnUpdateInfo_Click(object sender, EventArgs e)
+        {
+            string strAccountNameToModify = hfAccountName.Value;
+            string strModifiedAccountType = tbNewAccountType.Text;
+            string strModifiedFirstName = tbNewFirstName.Text;
+            string strModifiedLastName = tbNewLastName.Text;
+            string strModifiedMailAddress = tbNewMail.Text;
+            string strModifiedHomeAddress = tbNewHomeAddress.Text;
+            string strModifiedWorkPlace = tbNewWorkPlace.Text;
+
+            QW06_AccountManagementPage queryWriter = new QW06_AccountManagementPage();
+            QueryLauncher queryLauncher = new QueryLauncher();
+
+            queryLauncher.LaunchNonQuery(queryWriter.UpdateByAccountName(strAccountNameToModify, strModifiedAccountType, strModifiedFirstName, strModifiedLastName, strModifiedMailAddress, strModifiedHomeAddress, strModifiedWorkPlace), strConnection);
+
+            Page_Load(sender, e);
         }
     }
 }
